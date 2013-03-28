@@ -59,9 +59,11 @@ Missing
 Configuration
 -------------
 
-Application configuration:
+**Application**
 
-`src/main/resources/META-INF/config.properties`
+`src/main/resources/META-INF/config.properties` (Maven Generated)
+
+To setup this properties, look at `pom.xml` properties.
 
     cipher.key=(BASE64 key bytes)
     cipher.algorithm=(Symmetric Algorithm for Cryptography) 
@@ -69,7 +71,8 @@ Application configuration:
     email.from=(From for Emails)
     email.smtp=(MailSession, supports 'default' and 'gmail') 
 
-JBoss AS 7 configuration:
+
+**JBoss AS 7**
 
 Using JBoss AS 7.1.1.Final.
 
@@ -170,3 +173,28 @@ Starting from `standalone-full.xml` (replacing `standalone.xml`).
             </security-domain>
         </security-domains>
     </subsystem>
+
+**OpenShift**
+
+Edit `~/app-root/data/.bash_profile`:
+
+	APP_WEBROOT="https://${OPENSHIFT_APP_DNS}"
+	APP_EMAILSMTP="gmail"
+	APP_EMAILFROM="... <...@gmail.com>"
+	APP_CIPHERALG="DESede"
+	APP_CIPHERKEY="..."
+	export APP_WEBROOT APP_EMAILSMTP APP_EMAILFROM APP_CIPHERALG APP_CIPHERKEY
+
+Edit `<GIT CLONE>/.openshift/config/standalone.xml`:
+
+(Same configuration as JBoss AS before, unless DS)
+(still replacing ExampleDS)
+
+    <datasource jndi-name="java:jboss/datasources/EndorfinaAgencyDS" enabled="true" use-java-context="true" pool-name="H2DS">
+        <connection-url>jdbc:h2:${env.OPENSHIFT_DATA_DIR}/database;DB_CLOSE_DELAY=-1</connection-url>
+        <driver>h2</driver>
+        <security>
+            <user-name>sa</user-name>
+            <password>sa</password>
+        </security>
+    </datasource>

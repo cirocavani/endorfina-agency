@@ -10,9 +10,20 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <web.root>http://127.0.0.1:8080</web.root>
+        <email.smtp>default</email.smtp>
+        <email.from><![CDATA[Endorfina Agency <cavani.system@gmail.com>]]></email.from>
+        <cipher.algorithm>DESede</cipher.algorithm>
+        <cipher.key>YkXTiWv0qPuoDXA0I+oq2WRUWNwTaGf7</cipher.key>
 	</properties>
 	<build>
 		<finalName>agency</finalName>
+		<resources>
+			<resource>
+				<filtering>true</filtering>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -62,12 +73,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-jpamodelgen</artifactId>
-			<version>1.1.1.Final</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>4.2.0.Final</version>
 			<scope>provided</scope>
@@ -88,26 +93,27 @@
 			<artifactId>prettyfaces-jsf2</artifactId>
 			<version>3.3.3</version>
 		</dependency>
-        <dependency>
-        	<groupId>org.jboss.spec.javax.servlet</groupId>
-        	<artifactId>jboss-servlet-api_3.0_spec</artifactId>
+		<dependency>
+			<groupId>org.jboss.spec.javax.servlet</groupId>
+			<artifactId>jboss-servlet-api_3.0_spec</artifactId>
 			<scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
 			<scope>provided</scope>
-        </dependency>
-        <dependency>
-        	<groupId>org.jboss.spec.javax.jms</groupId>
-        	<artifactId>jboss-jms-api_1.1_spec</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.spec.javax.jms</groupId>
+			<artifactId>jboss-jms-api_1.1_spec</artifactId>
 			<scope>provided</scope>
-        </dependency>
-        <dependency>
-        	<groupId>com.google.guava</groupId>
-        	<artifactId>guava</artifactId>
-        	<version>14.0.1</version>
-        </dependency>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>14.0.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<profiles>
@@ -117,8 +123,14 @@
 			<!-- By default that is to put the resulting archive into the 'deployments' folder. -->
 			<!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
 			<id>openshift</id>
+            <properties>
+		        <web.root>${env.APP_WEBROOT}</web.root>
+		        <email.smtp>${env.APP_EMAILSMTP}</email.smtp>
+		        <email.from>${env.APP_EMAILFROM}</email.from>
+		        <cipher.algorithm>${env.APP_CIPHERALG}</cipher.algorithm>
+		        <cipher.key>${env.APP_CIPHERKEY}</cipher.key>
+            </properties>
 			<build>
-				<finalName>agency</finalName>
 				<plugins>
 					<plugin>
 						<artifactId>maven-war-plugin</artifactId>
