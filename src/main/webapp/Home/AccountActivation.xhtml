@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/View/HomeMaster.xhtml">
+
+<ui:define name="content">
+	<h:panelGroup rendered="#{ empty identity }">
+
+	<p>Sign in to activate your account.</p>
+	
+	<h:form id="activation_form">
+		<h:panelGrid columns="1">
+
+			<h:outputLabel for="activation_principal" value="Email:" />
+			<h:inputText id="activation_principal" value="#{ activationForm.principal }" styleClass="input-block-level" />
+			<h:messages for="activation_principal" errorClass="help-inline" />
+
+			<h:outputLabel for="activation_secret" value="Password:" />
+			<h:inputSecret id="activation_secret" value="#{ activationForm.secret }" styleClass="input-block-level" />
+			<h:messages for="activation_secret" errorClass="help-inline" />
+
+		</h:panelGrid>
+		<h:commandButton id="activation" action="#{ accountActivation.submit }" value="Activate" styleClass="btn btn-primary" />
+	</h:form>
+
+    <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning" />
+
+	</h:panelGroup>
+</ui:define>
+
+</ui:composition>

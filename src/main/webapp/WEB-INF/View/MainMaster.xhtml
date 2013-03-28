@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/View/Master.xhtml">
+
+<ui:define name="header">
+	<p>Hello <h:outputText value="#{ identity.name }" />,</p>
+	<p>You are signed in as <h:outputText value="#{ identity.principal }" />.</p>
+	<h:link outcome="pretty:AccountManagement" value="Account" />
+	<h:form>
+		<h:commandLink id="signout" action="#{ accountSignOut.submit }" value="Sign Out" />
+	</h:form>
+	<br />
+</ui:define>
+
+</ui:composition>

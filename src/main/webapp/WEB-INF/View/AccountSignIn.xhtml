@@ -1,0 +1,26 @@
+<h:form id="signin_form" styleClass="sign_form"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+	
+<h:panelGrid columns="1">
+
+	<h:outputLabel for="signin_principal" value="Email:" />
+	<h:inputText id="signin_principal" value="#{ signInForm.principal }" styleClass="input-block-level" />
+	<h:messages for="signin_principal" errorClass="help-inline" />
+
+	<h:outputLabel for="signin_secret" value="Password:" />
+	<h:inputSecret id="signin_secret" value="#{ signInForm.secret }" styleClass="input-block-level" />
+	<h:messages for="signin_secret" errorClass="help-inline" />
+
+</h:panelGrid>
+
+<h:panelGroup style="position: relative; left: 145px;">
+<h:link outcome="pretty:AccountRecovery" value="Recovery?" style="margin-right: 5px;"/>
+<h:commandButton id="signin" action="#{ accountSignIn.submit }" value="Sign In" styleClass="btn btn-primary" />
+</h:panelGroup>
+
+<h:messages for="signin_form" styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning" />
+
+</h:form>

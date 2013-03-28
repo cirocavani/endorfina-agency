@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/View/HomeMaster.xhtml">
+
+<ui:define name="sidebar">
+<h:panelGroup rendered="#{ empty identity }">
+
+<ui:include src="/WEB-INF/View/AccountSignIn.xhtml" />
+<ui:include src="/WEB-INF/View/AccountSignUp.xhtml" />
+
+<style type="text/css">
+html { 
+  background: url(/img/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+</style>
+
+</h:panelGroup>
+</ui:define>
+
+</ui:composition>

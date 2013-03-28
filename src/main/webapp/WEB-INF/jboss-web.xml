@@ -1,0 +1,4 @@
+<jboss-web>
+    <context-root>/</context-root>
+    <security-domain>java:/jaas/EndorfinaAgency</security-domain>
+</jboss-web>

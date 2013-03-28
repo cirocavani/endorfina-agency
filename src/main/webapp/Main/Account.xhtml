@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/View/MainMaster.xhtml">
+
+<ui:define name="content">
+
+	<h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning" />
+
+	<h:link outcome="pretty:Main" value="Back to Main" />
+
+	<h:panelGrid columns="2">
+
+		<h:outputLabel for="account_name" value="Name:" />
+		<h:inputText id="account_name" value="#{ accountForm.name }" readonly="true" />
+
+		<h:outputLabel for="account_principal" value="Email:" />
+		<h:inputText id="account_principal" value="#{ accountForm.principal }" readonly="true" />
+
+		<h:outputLabel for="account_secret" value="Password:" />
+		<h:inputText id="account_secret" value="#{ accountForm.secret }" readonly="true" />
+
+	</h:panelGrid>
+
+	<h:form id="account_form">
+		<h:commandLink id="delete" action="#{ accountManagement.delete }" value="Delete" styleClass="btn btn-primary" />
+	</h:form>
+
+</ui:define>
+
+</ui:composition>

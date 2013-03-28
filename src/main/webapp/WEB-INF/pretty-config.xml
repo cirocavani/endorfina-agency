@@ -1,0 +1,42 @@
+<pretty-config
+	xmlns="http://ocpsoft.com/prettyfaces/3.3.3" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://ocpsoft.com/prettyfaces/3.3.3 http://ocpsoft.org/xml/ns/prettyfaces/ocpsoft-pretty-faces-3.3.3.xsd">
+
+	<url-mapping id="Home">
+		<pattern value="/Home/" />
+		<view-id value="/Home/Home.jsf" />
+	</url-mapping>
+
+	<url-mapping id="About">
+		<pattern value="/About" />
+		<view-id value="/Home/About.jsf" />
+	</url-mapping>
+
+	<url-mapping id="Contact">
+		<pattern value="/Contact" />
+		<view-id value="/Home/Contact.jsf" />
+	</url-mapping>
+
+	<url-mapping id="Main">
+		<pattern value="/Main/" />
+		<view-id value="/Main/Main.jsf" />
+	</url-mapping>
+
+	<url-mapping id="AccountRecovery">
+		<pattern value="/Home/AccountRecovery" />
+		<view-id value="/Home/AccountRecovery.jsf" />
+	</url-mapping>
+
+	<url-mapping id="AccountManagement">
+		<pattern value="/Main/Account" />
+		<view-id value="/Main/Account.jsf" />
+	</url-mapping>
+
+	<url-mapping id="AccountActivation">
+		<pattern value="/Home/AccountActivation" />
+		<query-param name="token">#{ accountActivation.token }</query-param>
+		<view-id value="/Home/AccountActivation.jsf" />
+	</url-mapping>
+	
+</pretty-config>

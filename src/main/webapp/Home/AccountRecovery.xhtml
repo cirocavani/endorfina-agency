@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/View/HomeMaster.xhtml">
+
+<ui:define name="content">
+	<h:panelGroup rendered="#{ empty identity }">
+
+	<p>You will receive an email to recovery your account.</p>
+
+	<h:form id="recovery_form">
+		<h:panelGrid columns="1">
+
+			<h:outputLabel for="recovery_principal" value="Email:" />
+			<h:inputText id="recovery_principal" value="#{ recoveryForm.principal }" styleClass="input-block-level" />
+			<h:messages for="recovery_principal" errorClass="help-inline" />
+
+		</h:panelGrid>
+
+		<h:commandButton id="recovery" action="#{ accountRecovery.submit }" value="Send Email" styleClass="btn btn-primary" />
+        <h:messages for="recovery_form" styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning" />
+	</h:form>
+
+	</h:panelGroup>
+</ui:define>
+
+</ui:composition>

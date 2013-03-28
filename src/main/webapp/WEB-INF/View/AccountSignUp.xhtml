@@ -1,0 +1,29 @@
+<h:form id="signup_form" styleClass="sign_form"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+	
+<h:panelGrid columns="1">
+
+	<h:outputLabel for="signup_name" value="Name:" />
+	<h:inputText id="signup_name" value="#{ signUpForm.name }" styleClass="input-block-level" />
+	<h:messages for="signup_name" errorClass="help-inline" />
+
+	<h:outputLabel for="signup_principal" value="Email:" />
+	<h:inputText id="signup_principal" value="#{ signUpForm.principal }" styleClass="input-block-level" />
+	<h:messages for="signup_principal" errorClass="help-inline" />
+
+	<h:outputLabel for="signup_secret" value="Password:" />
+	<h:inputSecret id="signup_secret" value="#{ signUpForm.secret }" styleClass="input-block-level" />
+	<h:messages for="signup_secret" errorClass="help-inline" />
+
+</h:panelGrid>
+
+<h:panelGroup style="position: relative; left: 210px;">
+<h:commandButton id="signup" action="#{ accountSignUp.submit }" value="Sign Up" styleClass="btn btn-primary" />
+</h:panelGroup>
+
+<h:messages for="signup_form" styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning" />
+
+</h:form>
