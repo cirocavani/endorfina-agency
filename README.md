@@ -65,9 +65,9 @@ Application configuration:
 
     cipher.key=(BASE64 key bytes)
     cipher.algorithm=(Symmetric Algorithm for Cryptography) 
-    email.from=(From for Emails)
     web.root=(Application Web Address for Emails)
-    emai.smtp=(MailSession, supports 'default' and 'gmail') 
+    email.from=(From for Emails)
+    email.smtp=(MailSession, supports 'default' and 'gmail') 
 
 JBoss AS 7 configuration:
 
