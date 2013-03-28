@@ -8,7 +8,6 @@ import static cavani.endorfina.agency.util.EmailConstants.EMAIL_TO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.annotation.Resource;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.EJBException;
 import javax.ejb.MessageDriven;
@@ -33,7 +32,7 @@ public class EmailHandler implements MessageListener
 	@Inject
 	Logger log;
 
-	@Resource(mappedName = "java:jboss/mail/Default")
+	@Inject
 	private Session mailSession;
 
 	protected void send(final String from, final String to, final String subject, final String text) throws Exception

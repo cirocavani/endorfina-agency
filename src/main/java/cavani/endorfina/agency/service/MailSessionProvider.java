@@ -5,6 +5,8 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.mail.Session;
 
+import cavani.endorfina.agency.util.ConfigConstants;
+
 
 public class MailSessionProvider
 {
@@ -23,9 +25,9 @@ public class MailSessionProvider
 	{
 		switch (conf.emailSmtp())
 		{
-			case "default":
+			case ConfigConstants.CONFIG_EMAIL_SMTP_DEFAULT:
 				return defaultSession;
-			case "gmail":
+			case ConfigConstants.CONFIG_EMAIL_SMTP_GMAIL:
 				return gmailSession;
 			default:
 				return null;
