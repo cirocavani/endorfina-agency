@@ -50,7 +50,6 @@
 	</dependencyManagement>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>javax.enterprise</groupId>
 			<artifactId>cdi-api</artifactId>
@@ -113,7 +112,12 @@
 			<artifactId>guava</artifactId>
 			<version>14.0.1</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.subethamail</groupId>
+			<artifactId>subethasmtp</artifactId>
+			<version>3.1.7</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<profiles>

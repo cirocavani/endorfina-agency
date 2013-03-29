@@ -54,7 +54,6 @@ Missing
 
 * Tests (JUnit / Arquillian?)
 * Configuration script
-* Key generator
 * Change name/email/password
 * Authentication with Facebook, Google, Twitter
 * Token expiration
@@ -205,3 +204,18 @@ Edit `<GIT CLONE>/.openshift/config/standalone.xml`:
             <password>sa</password>
         </security>
     </datasource>
+
+Tools
+-----
+
+**FakeSmtp**
+
+Bind to port 25000, implements SMTP protocol and dumps to output email data.
+
+`src/test/java/cavani/endorfina/agency/tools/FakeSmtp25000.java`
+
+**KeyGen**
+
+Generate Symmetric Key and dumps to output in BASE64.
+
+`src/test/java/cavani/endorfina/agency/tools/KeyGen.java`
