@@ -24,7 +24,13 @@ Gears
 * Activation: authenticate and activate an account
 * Account: show an account (can be deleted as deactivated)
 
-Not Implemented: token expiration, change email/password, change name, disabling account permanently
+Not Implemented:
+
+* token expiration,
+* change name/email/password
+* disabling account permanently
+* Facebook, Google, Twitter authentication
+* Management REST API
 
 Featuring
 ---------
@@ -38,32 +44,33 @@ Featuring
 * JSF 2.1
 * Bean Validation 1.0
 * Servlet 3.0
-* JAAS
 
 (more)
 * PrettyFaces 3.3.3
-* Guava 0.14
+* Guava 14
 * Bootstrap 2.3.1
 
 (and...)
-* Maven 3 ;)
+* Eclipse IDE
+* Maven 3
+* JBoss AS 7
+* OpenShift
+* Java 7 ;)
 
 Missing
 -------
 
 * Tests (JUnit / Arquillian?)
 * Externalize strings / I10n
-* Facebook, Google, Twitter authentication
-* REST Management API
 
 Configuration
 -------------
 
 **Application**
 
-`src/main/resources/META-INF/config.properties` (Maven Generated)
+`src/main/resources/META-INF/config.properties`
 
-To setup this properties, look at `pom.xml` properties.
+*Maven Generated* - to setup this properties, look at properties in `pom.xml`.
 
     cipher.key=(BASE64 key bytes)
     cipher.algorithm=(Symmetric Algorithm for Cryptography) 
