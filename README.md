@@ -24,14 +24,6 @@ Gears
 * Activation: authenticate and activate an account
 * Account: show an account (can be deleted as deactivated)
 
-Not Implemented:
-
-* token expiration,
-* change name/email/password
-* disabling account permanently
-* Facebook, Google, Twitter authentication
-* Management REST API
-
 Featuring
 ---------
 
@@ -61,6 +53,14 @@ Missing
 -------
 
 * Tests (JUnit / Arquillian?)
+* Configuration script
+* Key generator
+* Change name/email/password
+* Authentication with Facebook, Google, Twitter
+* Token expiration
+* Disabling account permanently
+* Management REST API
+* Email templates
 * Externalize strings / I10n
 
 Configuration
