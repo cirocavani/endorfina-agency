@@ -4,7 +4,9 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="urn:ejb-pool:1.0"
-	xsi:schemaLocation="http://www.jboss.com/xml/ns/javaee http://www.jboss.org/j2ee/schema/jboss-ejb3-2_0.xsd http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd"
+	xsi:schemaLocation="
+		http://www.jboss.com/xml/ns/javaee http://www.jboss.org/j2ee/schema/jboss-ejb3-2_0.xsd
+		http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd"
 	version="3.1"
 	impl-version="2.0">
 	
@@ -14,4 +16,5 @@
             <p:bean-instance-pool-ref>emailhandler-mdb-pool</p:bean-instance-pool-ref>
         </p:pool>
     </assembly-descriptor>
+
 </jboss:ejb-jar>
