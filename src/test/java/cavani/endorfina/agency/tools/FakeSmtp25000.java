@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.Reader;
+import java.net.InetAddress;
 
 import org.subethamail.smtp.MessageContext;
 import org.subethamail.smtp.MessageHandler;
@@ -55,7 +56,8 @@ public final class FakeSmtp25000
 
 		public void print(final InputStream in, final PrintStream out)
 		{
-			try (final Reader _reader = new InputStreamReader(in);
+			try (
+				final Reader _reader = new InputStreamReader(in);
 				final BufferedReader reader = new BufferedReader(_reader))
 			{
 				String line = null;
@@ -87,6 +89,7 @@ public final class FakeSmtp25000
 	{
 		final OutputHandlerFactory outputFactory = new OutputHandlerFactory();
 		final SMTPServer smtpServer = new SMTPServer(outputFactory);
+		smtpServer.setBindAddress(InetAddress.getLoopbackAddress());
 		smtpServer.setPort(25000);
 		smtpServer.start();
 	}
