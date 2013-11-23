@@ -1,7 +1,7 @@
 Endorfina Agency
 ================
 
-Web Application for intelligent system operation.
+Java EE 6 Web Application.
 
 Currently, this is more a technology sampling. ;)
 
